@@ -2,6 +2,12 @@
 
 > "A tool that helps you think, not a tool that thinks for you."
 
+## Demo
+
+[![Demo Video](https://img.youtube.com/vi/kO6PZCTbyo0/maxresdefault.jpg)](https://www.youtube.com/watch?v=kO6PZCTbyo0)
+
+▶️ **[Watch Demo Video](https://www.youtube.com/watch?v=kO6PZCTbyo0)**
+
 ## Overview
 
 Thinking Tool is an Obsidian plugin that helps you collect materials from your notes, add your own thoughts, and generate articles with AI assistance. It integrates with Smart Connections to show related notes.
