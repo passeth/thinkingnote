@@ -4,6 +4,7 @@
 
 ## 데모
 
+![20260204155645-a31e0b5bdb gif-2-mp4 com](https://github.com/user-attachments/assets/0c65c885-1483-4d11-9cda-af974090424f)
 
 ▶️ **[데모 영상 보기](https://www.youtube.com/watch?v=kO6PZCTbyo0)**
 
