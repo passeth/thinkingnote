@@ -4,7 +4,7 @@
 
 ## 데모
 
-[![Demo Video](https://img.youtube.com/vi/kO6PZCTbyo0/maxresdefault.jpg)](https://www.youtube.com/watch?v=kO6PZCTbyo0)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kO6PZCTbyo0?si=CykI759TpcVicSTY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ▶️ **[데모 영상 보기](https://www.youtube.com/watch?v=kO6PZCTbyo0)**
 
