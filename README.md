@@ -3,8 +3,8 @@
 > "생각의 외주화를 막는 생각 도구"
 
 ## 데모
+<img width="1040" height="608" alt="image" src="https://github.com/user-attachments/assets/f14ed65f-a3fe-483f-a13f-c6531e66aa15" />
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kO6PZCTbyo0?si=CykI759TpcVicSTY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ▶️ **[데모 영상 보기](https://www.youtube.com/watch?v=kO6PZCTbyo0)**
 
