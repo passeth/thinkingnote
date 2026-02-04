@@ -347,3 +347,82 @@
   padding-top: 0;
   border-top: none;
 }
+
+/* ===== Writing Direction Section ===== */
+.thinking-tool-generate-modal .direction-section {
+  margin: 20px 0;
+  padding: 15px;
+  background: var(--background-secondary);
+  border-radius: 8px;
+}
+
+.thinking-tool-generate-modal .direction-section h4 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-normal);
+}
+
+.thinking-tool-generate-modal .direction-hint {
+  margin: 0 0 12px 0;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.thinking-tool-generate-modal .direction-input {
+  width: 100%;
+  min-height: 80px;
+  padding: 10px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  background: var(--background-primary);
+  color: var(--text-normal);
+  font-size: 13px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.thinking-tool-generate-modal .direction-input:focus {
+  outline: none;
+  border-color: var(--interactive-accent);
+}
+
+.thinking-tool-generate-modal .direction-input::placeholder {
+  color: var(--text-faint);
+}
+
+/* ===== Modal Buttons Enhancement ===== */
+.thinking-tool-generate-modal .modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.thinking-tool-generate-modal .modal-buttons button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.15s ease;
+}
+
+.thinking-tool-generate-modal .modal-buttons .btn-primary {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border: none;
+}
+
+.thinking-tool-generate-modal .modal-buttons .btn-primary:hover {
+  background: var(--interactive-accent-hover);
+}
+
+.thinking-tool-generate-modal .modal-buttons .btn-secondary {
+  background: var(--background-secondary);
+  color: var(--text-normal);
+  border: 1px solid var(--background-modifier-border);
+}
+
+.thinking-tool-generate-modal .modal-buttons .btn-secondary:hover {
+  background: var(--background-modifier-hover);
+}

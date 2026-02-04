@@ -614,7 +614,8 @@ Respond in JSON format (but content in ${language}):
   async generateArticle(
     materialsContent: string,
     topic: TopicSuggestion,
-    persona: Persona
+    persona: Persona,
+    userDirection: string = ""
   ): Promise<string> {
     const language = this.settings.outputLanguage || "한국어";
     
@@ -630,6 +631,10 @@ Respond in JSON format (but content in ${language}):
         `Write in a clear, professional style that balances accessibility with depth. Write entirely in ${language}.`,
     };
 
+    const userDirectionSection = userDirection.trim() 
+      ? `\n\nUser's Writing Direction:\n${userDirection}\n(Follow the user's intention and direction closely.)`
+      : "";
+
     const prompt = `You are a skilled writer. Write an article based on the following:
 
 **IMPORTANT: The entire article must be written in ${language}.**
@@ -637,7 +642,7 @@ Respond in JSON format (but content in ${language}):
 Topic: ${topic.title}
 Approach: ${topic.description}
 Outline:
-${topic.outline.map((p, i) => `${i + 1}. ${p}`).join("\n")}
+${topic.outline.map((p, i) => `${i + 1}. ${p}`).join("\n")}${userDirectionSection}
 
 Materials to incorporate:
 ${materialsContent}
@@ -649,7 +654,7 @@ Important:
 - Incorporate the collected materials naturally
 - Stay true to the user's collected thoughts and insights
 - Don't add information that contradicts the materials
-- Make the article coherent and well-structured
+- Make the article coherent and well-structured${userDirection.trim() ? "\n- Follow the user's writing direction and intention" : ""}
 
 Write the complete article in ${language} now:`;
 
@@ -1065,6 +1070,7 @@ class GenerateArticleModal extends Modal {
   topics: TopicSuggestion[] = [];
   selectedTopic: TopicSuggestion | null = null;
   selectedPersona: Persona = "essay";
+  userDirection: string = "";
   isGenerating: boolean = false;
 
   constructor(app: App, plugin: ThinkingToolPlugin) {
@@ -1166,6 +1172,16 @@ class GenerateArticleModal extends Modal {
     });
     cancelBtn.onclick = () => this.close();
 
+    const regenerateBtn = buttons.createEl("button", {
+      cls: "btn-secondary",
+      text: "🔄 Regenerate Topics",
+    });
+    regenerateBtn.onclick = async () => {
+      this.topics = [];
+      this.selectedTopic = null;
+      await this.render();
+    };
+
     const nextBtn = buttons.createEl("button", {
       cls: "btn-primary",
       text: "Next",
@@ -1202,6 +1218,23 @@ class GenerateArticleModal extends Modal {
         this.render();
       };
     }
+
+    // User direction input
+    const directionSection = contentEl.createDiv({ cls: "direction-section" });
+    directionSection.createEl("h4", { text: "✍️ Writing Direction (Optional)" });
+    directionSection.createEl("p", { 
+      cls: "direction-hint",
+      text: "Describe how you want this article to be written - your intention, focus, or angle." 
+    });
+    
+    const directionInput = directionSection.createEl("textarea", {
+      cls: "direction-input",
+      placeholder: "e.g., Focus on practical applications, keep it conversational, emphasize the connection between X and Y...",
+    });
+    directionInput.value = this.userDirection;
+    directionInput.oninput = (e) => {
+      this.userDirection = (e.target as HTMLTextAreaElement).value;
+    };
 
     // Buttons
     const buttons = contentEl.createDiv({ cls: "modal-buttons" });
@@ -1250,7 +1283,8 @@ class GenerateArticleModal extends Modal {
       const article = await this.plugin.generateArticle(
         materialsContent,
         this.selectedTopic,
-        this.selectedPersona
+        this.selectedPersona,
+        this.userDirection
       );
 
       const file = await this.plugin.createArticleNote(
